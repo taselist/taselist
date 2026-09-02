@@ -1,0 +1,63 @@
+:root {
+  --bg: #ffffff;
+  --logo-size: min(46vmin, 420px);
+  --intro-duration: 1.1s;
+  --pulse-duration: 2.4s;
+  --pulse-min: 0.93;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+.stage {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: var(--logo-size);
+  height: auto;
+  display: block;
+  transform: scale(0);
+  will-change: transform;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* JS adds .animate once the image has loaded */
+.logo.animate {
+  animation:
+    logo-in var(--intro-duration) cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    logo-pulse var(--pulse-duration) ease-in-out var(--intro-duration) infinite;
+}
+
+@keyframes logo-in {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+@keyframes logo-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(var(--pulse-min)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .logo.animate {
+    animation: none;
+    transform: scale(1);
+  }
+}
