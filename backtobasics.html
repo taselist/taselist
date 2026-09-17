@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Back to Basics</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .game-frame {
+      width: 960px;
+      height: 540px;
+      border: none;
+      display: block;
+      background: #000;
+    }
+
+    .fullscreen-btn {
+      background: none;
+      border: 1px solid #444;
+      color: #ccc;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 8px 24px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .fullscreen-btn:hover {
+      border-color: #aaa;
+      color: #fff;
+    }
+
+    .fullscreen-btn:active {
+      border-color: #fff;
+    }
+
+    /* When the iframe itself is fullscreen, fill the screen */
+    .game-frame:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+    }
+
+    /* Hide the button text and show a note if fullscreen isn't supported */
+    .fullscreen-btn.unsupported {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="game"
+    class="game-frame"
+    src="backtobasics/index.html"
+    allowfullscreen
+    allow="autoplay; fullscreen"
+    scrolling="no"
+  ></iframe>
+
+  <button class="fullscreen-btn" id="fsBtn" type="button">Fullscreen</button>
+
+  <script>
+    const iframe = document.getElementById('game');
+    const btn = document.getElementById('fsBtn');
+
+    // Check fullscreen support
+    const fsEnabled =
+      document.fullscreenEnabled ||
+      document.webkitFullscreenEnabled ||
+      document.mozFullScreenEnabled ||
+      document.msFullscreenEnabled;
+
+    if (!fsEnabled) {
+      btn.classList.add('unsupported');
+      btn.textContent = 'Fullscreen not supported';
+    }
+
+    btn.addEventListener('click', () => {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
