@@ -51,6 +51,30 @@
       border-color: #fff;
     }
 
+    .download-btn {
+      display: inline-block;
+      background: none;
+      border: 2px solid #444;
+      color: #ccc;
+      font-family: inherit;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 16px 48px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .download-btn:hover {
+      border-color: #aaa;
+      color: #fff;
+    }
+
+    .download-btn:active {
+      border-color: #fff;
+    }
+
     /* When the iframe itself is fullscreen, fill the screen */
     .game-frame:fullscreen {
       width: 100vw;
@@ -76,6 +100,8 @@
   ></iframe>
 
   <button class="fullscreen-btn" id="fsBtn" type="button">Fullscreen</button>
+
+  <a class="download-btn" href="BackToBasics.zip" download>⬇ Download Windows Build</a>
 
   <script>
     const iframe = document.getElementById('game');
