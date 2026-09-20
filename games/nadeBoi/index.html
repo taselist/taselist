@@ -437,7 +437,30 @@
     </style>
 
     <!-- Custom PostStyle code is injected here -->
-    
+    <!-- GX Cut Injection -->
+     <!-- By TabularElf -->
+     <!-- https://github.com/tabularelf/GX-Extensions -->
+     <style>
+		  canvas.emscripten {
+			transition: opacity 0s ease-in;
+			-webkit-transition: opacity 0s ease-in;
+		  }
+	 
+          canvas.active {
+              animation-duration: 0.01s !important;
+			  opacity: 1 !important;
+          }
+
+	  @keyframes fadeIn {
+        0% {
+          opacity: 0 !important;
+        }
+
+        100% {
+          opacity: 1 !important;
+        }
+      }
+     </style>
 
     <!-- Builtin injector for injecting flurry analytics code -->
     
@@ -447,12 +470,49 @@
   
 
   <!-- Custom PreBody code is injected here -->
-  
+  <!-- GX Style Injection -->
+<!-- By TabularElf -->
+<style>
+      html {
+        background: #000000;
+      }
+
+      body {
+        background: #000000;
+      }
+
+      .spinner {
+        border: 0px solid #bdff00;
+        border-top: 0px solid #719900;
+        border-radius: 0%;
+
+        width: 0px;
+        height: 0px;
+
+        -webkit-animation: rotation 0.8s linear infinite;
+        -moz-animation: rotation 0.8s linear infinite;
+        -o-animation: rotation 0.8s linear infinite;
+         animation: rotation 0.8s linear infinite;
+
+         background-image: none;
+         background-size: none;
+         background-repeat: no-repeat;
+         background-position: background-position: center center; ;
+      }
+
+      progress[value]::-webkit-progress-value {
+        background-image: #000000;
+        height: 10px;
+        border-radius: 15px;
+      }
+</style>
+
+<link rel="stylesheet" href="gx_style.css">
 
   <body>
 
     <!-- Custom BodyStart code is injected here -->
-    
+    <script type="text/javascript" src="gx_style_body_start.js"></script>
 
     <!-- Custom PreCanvas code is injected here -->
     
@@ -861,11 +921,11 @@
 
       function manifestFilesMD5()
       {
-        return [ "75b2870017f5eb1d0eba572d821714c6",
+        return [ "2675413ddf2ef38b374aa0e0bef9f180",
 "7eb285d8ddb936cebc7b03e69bf13d75",
 "6344cea96b6757c3753745b7ebf72d7d",
 "e8f1e8db8cf996f8715a6f2164c2e44e",
-"39c31b09ad4627ef89f757a6605c5496",
+"369dca8608fbb7b7ad07ceffbb0bcde1",
 "9c58845593a8ecc893b50882a0e9fb28" ];
       }
 
@@ -1561,7 +1621,22 @@
     <script async type="text/javascript" src="runner.js"></script>
 
     <!-- Custom BodyEnd code is injected here -->
-    
+    <!-- GX Recommence Injection -->
+   <!-- By TabularElf -->
+   <!-- https://github.com/tabularelf/GX-Extensions -->
+    <script>
+      function pause() {
+         if (!canvasElement.classList.contains("active")) {
+             return;
+        }
+
+        GM_pause();
+        pauseMenu.hidden = true;
+        requestAnimationFrame(() => {GM_unpause();});
+      }
+    </script>
+
+<script type="text/javascript" src="gx_style_body_end.js"></script>
 
   </body>
   

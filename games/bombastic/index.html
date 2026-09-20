@@ -103,9 +103,12 @@
         filter: blur(0) grayscale(0);
         margin-top: auto;
         margin-bottom: auto;
-        image-rendering: optimizeQuality;           /* Older versions of FF          */
-        image-rendering: auto;                      /* Awesome future-browsers       */
-        -ms-interpolation-mode: bicubic;            /* IE                            */        
+        image-rendering: optimizeSpeed;             /* Older versions of FF          */
+        image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+        image-rendering: -webkit-optimize-contrast; /* Safari                        */
+        image-rendering: -o-crisp-edges;            /* OS X + Windows Opera (12.02+) */
+        image-rendering: pixelated;                 /* Awesome future-browsers       */
+        -ms-interpolation-mode: nearest-neighbor;   /* IE                            */        
       }
 
       canvas.active {
@@ -434,7 +437,30 @@
     </style>
 
     <!-- Custom PostStyle code is injected here -->
-    
+    <!-- GX Cut Injection -->
+     <!-- By TabularElf -->
+     <!-- https://github.com/tabularelf/GX-Extensions -->
+     <style>
+		  canvas.emscripten {
+			transition: opacity 0s ease-in;
+			-webkit-transition: opacity 0s ease-in;
+		  }
+	 
+          canvas.active {
+              animation-duration: 0.01s !important;
+			  opacity: 1 !important;
+          }
+
+	  @keyframes fadeIn {
+        0% {
+          opacity: 0 !important;
+        }
+
+        100% {
+          opacity: 1 !important;
+        }
+      }
+     </style>
 
     <!-- Builtin injector for injecting flurry analytics code -->
     
@@ -444,12 +470,49 @@
   
 
   <!-- Custom PreBody code is injected here -->
-  
+  <!-- GX Style Injection -->
+<!-- By TabularElf -->
+<style>
+      html {
+        background: #000000;
+      }
+
+      body {
+        background: #000000;
+      }
+
+      .spinner {
+        border: 0px solid #bdff00;
+        border-top: 0px solid #719900;
+        border-radius: 0%;
+
+        width: 0px;
+        height: 0px;
+
+        -webkit-animation: rotation 0.8s linear infinite;
+        -moz-animation: rotation 0.8s linear infinite;
+        -o-animation: rotation 0.8s linear infinite;
+         animation: rotation 0.8s linear infinite;
+
+         background-image: none;
+         background-size: none;
+         background-repeat: no-repeat;
+         background-position: background-position: center center; ;
+      }
+
+      progress[value]::-webkit-progress-value {
+        background-image: #000000;
+        height: 10px;
+        border-radius: 15px;
+      }
+</style>
+
+<link rel="stylesheet" href="gx_style.css">
 
   <body>
 
     <!-- Custom BodyStart code is injected here -->
-    
+    <script type="text/javascript" src="gx_style_body_start.js"></script>
 
     <!-- Custom PreCanvas code is injected here -->
     
@@ -852,16 +915,20 @@
 "runner.js",
 "runner.wasm",
 "audio-worklet.js",
-"game.unx" ].join( ";");
+"game.unx",
+"sndgame.ogg",
+"sndmenu.ogg" ].join( ";");
       }
 
       function manifestFilesMD5()
       {
-        return [ "c92a343a2bbd0c9e71ce919bfe64eea1",
+        return [ "99fd8222597b5577f8a4463a28818c10",
 "7eb285d8ddb936cebc7b03e69bf13d75",
 "6344cea96b6757c3753745b7ebf72d7d",
 "e8f1e8db8cf996f8715a6f2164c2e44e",
-"f747f1459e687232912758ceaaaf52d0" ];
+"4817e8a74b6d01c5354ea5bd659843ea",
+"e1f89ae81fb668930926a00f2bbd665b",
+"3b92cca2a896f340abcfc490d17e4d36" ];
       }
 
       function onFirstFrameRendered()
@@ -1556,7 +1623,22 @@
     <script async type="text/javascript" src="runner.js"></script>
 
     <!-- Custom BodyEnd code is injected here -->
-    
+    <!-- GX Recommence Injection -->
+   <!-- By TabularElf -->
+   <!-- https://github.com/tabularelf/GX-Extensions -->
+    <script>
+      function pause() {
+         if (!canvasElement.classList.contains("active")) {
+             return;
+        }
+
+        GM_pause();
+        pauseMenu.hidden = true;
+        requestAnimationFrame(() => {GM_unpause();});
+      }
+    </script>
+
+<script type="text/javascript" src="gx_style_body_end.js"></script>
 
   </body>
   

@@ -3,3 +3,6 @@ EMSDKDir="C:\EmscriptenSDK/emsdk.bat"
 [OperaGX]
 ProjectGuid=""
 [Draw_Text_Outlined]
+[GX_Cut]
+[GX_Recommence]
+[GX_Style]

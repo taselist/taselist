@@ -2,6 +2,9 @@
 EMSDKDir="C:\EmscriptenSDK/emsdk.bat"
 [OperaGX]
 ProjectGuid=""
+[GX_Cut]
+[GX_Recommence]
+[GX_Style]
 [TweenGMS]
 
 ****************************
