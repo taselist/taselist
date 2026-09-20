@@ -23,8 +23,8 @@
     }
 
     .game-frame {
-      width: 960px;
-      height: 540px;
+      width: 800px;
+      height: 592px;
       border: none;
       display: block;
       background: #000;
@@ -57,6 +57,14 @@
       object-fit: contain;
     }
 
+    .controls {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
     .fullscreen-btn.unsupported {
       opacity: 0.3;
       pointer-events: none;
@@ -74,6 +82,8 @@
   ></iframe>
 
   <button class="fullscreen-btn" id="fsBtn" type="button">Fullscreen</button>
+
+  <p class="controls">WASD: Move, MOUSE: Aim &amp; Shoot</p>
 
   <script>
     const iframe = document.getElementById('game');
