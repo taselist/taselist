@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Back to Basics</title>
+  <title>Bombastic</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -51,30 +51,6 @@
       border-color: #fff;
     }
 
-    .download-btn {
-      display: inline-block;
-      background: none;
-      border: 2px solid #444;
-      color: #ccc;
-      font-family: inherit;
-      font-size: 24px;
-      font-weight: bold;
-      padding: 16px 48px;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .download-btn:hover {
-      border-color: #aaa;
-      color: #fff;
-    }
-
-    .download-btn:active {
-      border-color: #fff;
-    }
-
     .game-frame:fullscreen {
       width: 100vw;
       height: 100vh;
@@ -91,15 +67,13 @@
   <iframe
     id="game"
     class="game-frame"
-    src="games/backtobasics/index.html"
+    src="games/bombastic/index.html"
     allowfullscreen
     allow="autoplay; fullscreen"
     scrolling="no"
   ></iframe>
 
   <button class="fullscreen-btn" id="fsBtn" type="button">Fullscreen</button>
-
-  <a class="download-btn" href="BackToBasics.zip" download>⬇ Download Windows Build</a>
 
   <script>
     const iframe = document.getElementById('game');
