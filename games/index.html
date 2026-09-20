@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Games – Taselist</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      min-height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      gap: 48px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #ccc;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      width: 100%;
+    }
+
+    .game-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .game-card:hover {
+      color: #fff;
+    }
+
+    .game-card img,
+    .game-card .placeholder {
+      border: 2px solid #333;
+      transition: border-color 0.2s;
+    }
+
+    .game-card:hover img,
+    .game-card:hover .placeholder {
+      border-color: #888;
+    }
+
+    .game-card img {
+      display: block;
+      image-rendering: auto;
+    }
+
+    .placeholder {
+      width: 315px;
+      height: 250px;
+      max-width: 100%;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #555;
+      letter-spacing: 0.04em;
+    }
+
+    .game-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <h1>GAMES</h1>
+
+  <div class="game-grid">
+    <a class="game-card" href="/backtobasics.html">
+      <img src="backtobasics.gif" width="315" height="250" alt="Back to Basics" />
+      <span class="game-title">Back to Basics</span>
+    </a>
+
+    <a class="game-card" href="/bombastic.html">
+      <div class="placeholder">coming soon</div>
+      <span class="game-title">Bombastic</span>
+    </a>
+
+    <a class="game-card" href="/dashin-n-slashin.html">
+      <div class="placeholder">coming soon</div>
+      <span class="game-title">Dashin n' Slashin</span>
+    </a>
+
+    <a class="game-card" href="/nadeboi.html">
+      <div class="placeholder">coming soon</div>
+      <span class="game-title">nadeBoi</span>
+    </a>
+  </div>
+</body>
+</html>
